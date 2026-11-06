@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raju V — Java Full Stack Developer & Web Engineer</title>
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Portfolio of Raju V - Full Stack Developer specializing in Java, Web Development, and scalable systems. Explore projects, skills, education, and credentials.">
-  <meta name="keywords" content="Raju V, Full Stack Developer, Java Developer, Web Developer, SVCE Bengaluru, Nalla Nudi App, Web Design, Dribbble Animations">
+  <meta name="description" content="Portfolio of Raju V - Java Full Stack Developer specializing in Java, Servlets, JSP, MySQL, Hibernate, and modern web applications.">
+  <meta name="keywords" content="Raju V, Full Stack Developer, Java Developer, JSP, Servlets, MySQL, Hibernate, OpenRouter AI, NutriVision, BookMyShow, TastyHub, Web Development">
   <meta name="author" content="Raju V">
 
   <!-- Tailwind CSS CDN -->
@@ -61,7 +61,7 @@
     }
   </script>
 
-  <!-- Google Fonts: Syne (Editorial Display) & Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Syne & Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
@@ -83,7 +83,7 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    /* Subtle Architectural Light Grid Overlay */
+    /* Architectural Light Grid Overlay */
     .bg-grid-pattern {
       background-image: 
         linear-gradient(rgba(10, 9, 9, 0.035) 1px, transparent 1px),
@@ -92,7 +92,7 @@
       background-position: center;
     }
 
-    /* Editorial Light Surfaces */
+    /* Editorial Light Surface Cards */
     .editorial-card {
       background: #FFFFFF;
       border: 1px solid rgba(10, 9, 9, 0.08);
@@ -114,7 +114,7 @@
       box-shadow: 0 4px 20px -2px rgba(10, 9, 9, 0.04);
     }
 
-    /* Ambient Warm Editorial Glows */
+    /* Ambient Warm Backlights */
     .ambient-warm {
       position: absolute;
       border-radius: 9999px;
@@ -123,7 +123,7 @@
       z-index: 0;
     }
 
-    /* Editorial Section Numbering */
+    /* Section Numbering */
     .section-num {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
@@ -143,7 +143,7 @@
       background: #9C6455;
     }
 
-    /* Custom Cursor Styles for Light Editorial Palette */
+    /* Custom Cursor Styles */
     @media (pointer: fine) {
       .cursor-dot {
         position: fixed;
@@ -203,7 +203,7 @@
   <div id="cursor-dot" class="cursor-dot hidden md:block"></div>
   <div id="cursor-ring" class="cursor-ring hidden md:block"></div>
 
-  <!-- Global Architectural Light Grid & Ambient Warm Backlights -->
+  <!-- Global Architectural Light Grid & Ambient Backlights -->
   <div class="fixed inset-0 bg-grid-pattern opacity-[0.6] pointer-events-none z-0"></div>
   <div class="ambient-warm w-[550px] h-[550px] bg-sand/25 -top-40 -left-40"></div>
   <div class="ambient-warm w-[600px] h-[600px] bg-terracotta/12 top-[30%] -right-40"></div>
@@ -221,7 +221,7 @@
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
 
-    // --- High-Performance Custom SVG Icon Pack (Minimalist Monoline) ---
+    // --- High-Performance Custom SVG Icon Pack ---
     function Icon({ name, className = "w-5 h-5", ...props }) {
       const icons = {
         arrowUpRight: (
@@ -323,6 +323,12 @@
         ),
         x: (
           <path d="M18 6 6 18M6 6l12 12" />
+        ),
+        shieldCheck: (
+          <>
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
+          </>
         )
       };
 
@@ -420,22 +426,28 @@
       const [scrollProgress, setScrollProgress] = useState(0);
       const [emailCopied, setEmailCopied] = useState(false);
       const [showBackToTop, setShowBackToTop] = useState(false);
+      const [selectedCert, setSelectedCert] = useState(null);
 
       // Contact Form State
       const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
       const [isSubmitting, setIsSubmitting] = useState(false);
       const [submitSuccess, setSubmitSuccess] = useState(false);
 
-      // Student info constants - 100% PRESERVED
-      const resumeUrl = "https://drive.google.com/file/d/12VJbwb8kcpAZ2CV5186VgU06WRI8trd4/view?usp=drive_link";
+      // Contact & Profile Constants
+      const resumeUrl = "https://drive.google.com/file/d/1uMHjUyqJ38z8vXl-OiNMMLuznXh0M7gi/view?usp=drivesdk";
       const profilePicUrl = "profile.jpg";
-      const emailAddress = "rajuraj911066@gmail.com";
-      const githubUrl = "https://github.com/rajuv-hub";
+      const emailAddress = "rajuv.fullstack@gmail.com";
+      const githubUrl = "https://github.com/Rajuv-hub";
       const linkedinUrl = "https://www.linkedin.com/in/raju-v-49787a310";
 
       // Typing animation phrases
-      const roles = ["Full Stack Developer", "Java Architect", "Backend Engineer", "Web UI Designer"];
-      const typedRole = useTypewriter(roles, 90, 2400);
+      const roles = [
+        "Full Stack Java Developer",
+        "Backend Systems Engineer",
+        "AI Vision Integrator",
+        "Modern Web Architect"
+      ];
+      const typedRole = useTypewriter(roles, 85, 2300);
 
       // Navigation Items
       const navLinks = [
@@ -443,90 +455,171 @@
         { label: "Services", href: "#services" },
         { label: "Skills", href: "#skills" },
         { label: "Works", href: "#projects" },
+        { label: "Certificates", href: "#certificates" },
         { label: "Journey", href: "#education" },
         { label: "Contact", href: "#contact" }
       ];
 
-      // Skills Dataset - 100% PRESERVED
+      // Skills Dataset - Organized by categories with exact requested skills
       const skillsData = {
-        Frontend: [
-          { name: "HTML5", percentage: 95, icon: "code" },
-          { name: "CSS3 & Flexbox/Grid", percentage: 90, icon: "code" },
-          { name: "Tailwind CSS", percentage: 85, icon: "sparkles" },
-          { name: "JavaScript (ES6+)", percentage: 75, icon: "code" }
+        "Backend & Java": [
+          { name: "Java (Core & OOPs)", percentage: 95, icon: "terminal" },
+          { name: "JDBC (Data Persistence)", percentage: 90, icon: "terminal" },
+          { name: "JSP & Servlets", percentage: 88, icon: "layers" },
+          { name: "Hibernate ORM", percentage: 84, icon: "database" },
+          { name: "REST APIs & Architecture", percentage: 86, icon: "globe" },
+          { name: "Collection Frameworks", percentage: 90, icon: "terminal" }
         ],
-        Backend: [
-          { name: "Java (Core & OOPs)", percentage: 90, icon: "terminal" },
-          { name: "Exception Handling", percentage: 85, icon: "terminal" },
-          { name: "Collections Framework", percentage: 80, icon: "terminal" },
-          { name: "JDBC Services", percentage: 75, icon: "terminal" }
+        "Frontend": [
+          { name: "HTML5 & Semantics", percentage: 95, icon: "code" },
+          { name: "CSS3 & Responsive Design", percentage: 92, icon: "code" },
+          { name: "JavaScript (ES6+)", percentage: 86, icon: "code" },
+          { name: "Tailwind CSS & Systems", percentage: 90, icon: "sparkles" }
         ],
-        Databases: [
-          { name: "MySQL Workbench", percentage: 85, icon: "database" },
-          { name: "SQL Queries & DDL/DML", percentage: 80, icon: "database" },
-          { name: "Schema & Relationships", percentage: 75, icon: "database" }
+        "Databases": [
+          { name: "MySQL Workbench", percentage: 90, icon: "database" },
+          { name: "SQL Queries (DDL/DML)", percentage: 88, icon: "database" },
+          { name: "Database Schema & Relations", percentage: 85, icon: "database" }
         ],
-        Tools: [
-          { name: "Git & GitHub Versioning", percentage: 85, icon: "github" },
-          { name: "VS Code & Modern IDEs", percentage: 90, icon: "code" },
-          { name: "Eclipse / IntelliJ", percentage: 80, icon: "terminal" },
-          { name: "ChatGPT (AI Prompting)", percentage: 95, icon: "sparkles" }
+        "Tools & AI": [
+          { name: "OpenRouter & AI Vision", percentage: 92, icon: "sparkles" },
+          { name: "Git & GitHub Versioning", percentage: 90, icon: "github" },
+          { name: "Eclipse IDE", percentage: 88, icon: "terminal" },
+          { name: "VS Code & Modern IDEs", percentage: 92, icon: "code" }
         ]
       };
 
-      // Projects Dataset - Updated Links
+      // Projects Dataset - Cleanly Divided into Full-Stack and Frontend (Nalla Nudi removed)
       const projectsData = [
+        // --- Full-Stack Projects ---
         {
-          id: "01",
+          id: "FS-01",
+          title: "NutriVisionWithAI",
+          category: "Full-Stack",
+          period: "10/2026 – 11/2026",
+          badge: "Full-Stack & AI Vision",
+          description: "An AI-powered nutrition web application where users upload food photos and receive identified food items with estimated calories and nutrient breakdown.",
+          bullets: [
+            "Built and deployed an AI-powered nutrition web app where users upload a food image and receive identified food items with estimated calories and nutrient values.",
+            "Integrated AI vision models through the OpenRouter API to recognize food and generate nutrition insights that help users make informed dietary choices.",
+            "Developed the backend with Java Servlets, JSP and JDBC, persisting user data in MySQL, with a responsive HTML, CSS and JavaScript interface."
+          ],
+          tech: ["Java", "JDBC", "JSP", "Servlets", "HTML", "CSS", "JavaScript", "MySQL", "OOP", "OpenRouter"],
+          github: "https://github.com/Rajuv-hub/NutriVisionAI",
+          live: "https://nutrivisionai-rq7s.onrender.com",
+          image: "nutrivision.png",
+          featured: true
+        },
+        {
+          id: "FS-02",
+          title: "BookMyShow Application",
+          category: "Full-Stack",
+          period: "Sep 2026 – Oct 2026",
+          badge: "Full-Stack Enterprise",
+          description: "A comprehensive movie ticket booking web application allowing users to browse running films, choose theaters, and book tickets through a structured booking flow.",
+          bullets: [
+            "Built a movie ticket booking web application where users browse movies and book tickets through a structured booking flow.",
+            "Used Servlets and JSP for dynamic pages and request processing, with JDBC and MySQL for storing movies, shows and booking data.",
+            "Designed a clear, responsive interface with HTML and CSS, and deployed the application online."
+          ],
+          tech: ["Java", "JDBC", "JSP", "Servlets", "HTML", "CSS", "MySQL"],
+          github: "https://github.com/Rajuv-hub/BookMyShows",
+          live: "https://bookmyshows-b3k8.onrender.com/BookMyShows/movies",
+          image: "bookmyshow.png",
+          featured: true
+        },
+        {
+          id: "FS-03",
+          title: "TastyHub – Food Delivery Application",
+          category: "Full-Stack",
+          period: "Oct 2026 – Nov 2026",
+          badge: "Full-Stack Platform",
+          description: "A full-stack online food delivery platform covering restaurant catalogs, interactive menus, shopping cart persistence, and an end-to-end order flow.",
+          bullets: [
+            "Developed a full-stack food delivery platform covering restaurant and menu browsing, cart management and an end-to-end order flow.",
+            "Implemented MVC-style request handling with Servlets and JSP, and JDBC data access to a MySQL database for restaurants, menus, users and orders.",
+            "Deployed the application online with a clean, user-friendly interface for a smooth browsing and ordering experience."
+          ],
+          tech: ["Java", "JDBC", "JSP", "Servlets", "HTML", "CSS", "MySQL"],
+          github: "https://github.com/Rajuv-hub",
+          live: "https://food-e79g.onrender.com/",
+          image: "tastyhub.png",
+          featured: true
+        },
+
+        // --- Frontend Projects ---
+        {
+          id: "FE-01",
           title: "One8 Sneakers Landing Page",
-          category: "Web",
-          year: "2024",
-          description: "A premium, responsive product showcase landing page for the Virat Kohli One8 sneakers brand. Features custom interactive technology highlight cards, elegant dark mode design, hover-triggered animations, and a seamless responsive UI built using clean HTML and CSS layout hierarchies.",
+          category: "Frontend",
+          period: "2024",
+          badge: "Brand UI / UX",
+          description: "A premium, responsive product showcase landing page for the Virat Kohli One8 sneakers brand.",
+          bullets: [
+            "Engineered custom interactive technology highlight cards and dark mode aesthetics tailored to high-end apparel marketing.",
+            "Implemented hover-triggered micro-interactions and smooth scroll triggers using modern CSS keyframes and vanilla JavaScript.",
+            "Crafted a mobile-first responsive grid system ensuring sub-second rendering across all mobile and desktop screens."
+          ],
           tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-          github: "https://github.com/rajuv-hub/One8-Langing-Page",
+          github: "https://github.com/Rajuv-hub/One8-Langing-Page",
           live: "https://rajuv-hub.github.io/One8-Langing-Page/",
-          status: "Completed",
-          featured: true,
-          image: "https://cdn.shopify.com/s/files/1/0692/3514/6912/files/Cover_Drive_Desktop_new_1_6c6ecb15-e406-4e7c-80cc-39e53e1a4568.jpg?v=1783015465&width=1500"
+          image: "https://cdn.shopify.com/s/files/1/0692/3514/6912/files/Cover_Drive_Desktop_new_1_6c6ecb15-e406-4e7c-80cc-39e53e1a4568.jpg?v=1783015465&width=1500",
+          featured: false
         },
         {
-          id: "02",
-          title: "Nalla nudi Android app Development",
-          category: "Mobile",
-          year: "2024",
-          description: "Nalla Nudi is a production-focused Android application designed to promote and simplify Kannada language learning through a highly engaging, intuitive UI/UX. The app includes structured, interactive lessons, responsive navigation, and robust mobile architecture. Built with Object-Oriented Java design to provide reliable device rendering, clean code hierarchies, and memory-safe component lifecycles.",
-          tech: ["Java", "OOPs", "XML", "CSS", "UI/UX"],
-          github: "https://github.com/rajuv-hub/Nalla-Nudi",
-          live: "https://rajuv-hub.github.io/Nalla-Nudi/",
-          status: "Completed",
-          featured: true,
-          image: "nalla_nudi.jpg"
-        },
-        {
-          id: "03",
+          id: "FE-02",
           title: "Kalaavaibhava '24 College Fest Landing Page",
-          category: "Web",
-          year: "2024",
-          description: "A vibrant, responsive cultural event landing page built for SVCE Bengaluru's premier college fest. Features a live countdown timer, interactive event categories, custom keyframe scroll animations, and a call-to-action registration flow.",
-          tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-          github: "https://github.com/rajuv-hub/college-fest-landing-page",
+          category: "Frontend",
+          period: "2024",
+          badge: "Event Experience",
+          description: "A vibrant, responsive cultural event landing page built for SVCE Bengaluru's premier college fest.",
+          bullets: [
+            "Designed and deployed a live synchronized countdown timer, interactive event categories, and schedule matrices.",
+            "Integrated custom CSS animation layers and intuitive registration calls-to-action handling high visitor traffic during festival season.",
+            "Clean semantic code structure with optimized asset weight for instant loading on mobile student devices."
+          ],
+          tech: ["HTML5", "CSS3", "JavaScript", "Responsive UI"],
+          github: "https://github.com/Rajuv-hub/college-fest-landing-page",
           live: "https://rajuv-hub.github.io/college-fest-landing-page/",
-          status: "Completed",
-          featured: true,
-          image: "college_fest_banner.png"
+          image: "college_fest_banner.png",
+          featured: false
+        }
+      ];
+
+      // Verified Certifications Dataset (High-Res HackerRank Certificate & 02 Nov 2026 date)
+      const certificatesData = [
+        {
+          id: "cert-01",
+          title: "Claude Platform 101",
+          issuer: "Anthropic",
+          issuedDate: "October 2026",
+          credentialId: "vmoprnag9tus",
+          verifyUrl: "https://verify.skilljar.com/c/vmoprnag9tus",
+          image: "cert_claude_101.png",
+          topics: ["Claude 3.5 Sonnet", "Prompt Architecture", "Tool Use & Function Calling", "Anthropic API"],
+          summary: "Official certification validating deep proficiency in Anthropic's Claude API, system prompt design, function calling, tool use, and generative AI orchestration."
         },
         {
-          id: "04",
-          title: "FeastFlow Food Delivery App",
-          category: "Web",
-          year: "2024",
-          description: "A high-performance, mobile-first food delivery application built with vanilla JavaScript, HTML5, and CSS3, integrated with Clerk Google authentication. Features custom client-side hash routing, local storage-synchronized shopping cart flows, search indexing, and category filters.",
-          tech: ["JavaScript", "HTML5", "CSS3", "Clerk Auth", "Responsive Design"],
-          github: "https://github.com/rajuv-hub/feastflow-food-delivery",
-          live: "https://rajuv-hub.github.io/feastflow-food-delivery/",
-          status: "Completed",
-          featured: true,
-          image: "feastflow_banner.png"
+          id: "cert-02",
+          title: "Java (Basic) Certificate",
+          issuer: "HackerRank",
+          issuedDate: "02 Nov, 2026",
+          credentialId: "8DCF53237ADD",
+          verifyUrl: "https://www.hackerrank.com/certificates/8dcf53237add",
+          image: "cert_hackerrank_java.png",
+          topics: ["Core Java", "OOP Principles", "Exception Handling", "Collections Framework"],
+          summary: "Verified technical accreditation assessing fundamental Java programming, inheritance hierarchies, interface contracts, exception processing, and algorithmic problem-solving."
+        },
+        {
+          id: "cert-03",
+          title: "Generative AI: Prompt Engineering Basics",
+          issuer: "IBM (Coursera)",
+          issuedDate: "Nov 25, 2025",
+          credentialId: "UHHJJV6UQV26",
+          verifyUrl: "https://www.coursera.org/account/accomplishments/verify/UHHJJV6UQV26",
+          image: "cert_ibm_genai.png",
+          topics: ["Prompt Engineering", "LLM Foundations", "Few-Shot Techniques", "AI Workflow Integration"],
+          summary: "Authorized credential from IBM certifying mastery of prompt engineering methodologies, foundational LLM mechanisms, directional stimulus prompting, and real-world AI applications."
         }
       ];
 
@@ -534,31 +627,31 @@
       const services = [
         {
           number: "01",
-          title: "Full Stack Web Development",
-          description: "Crafting end-to-end modern web applications with clean semantic HTML5, high-efficiency Tailwind CSS, and reactive ES6+ JavaScript, with strict adherence to cross-device responsiveness.",
-          icon: "code",
-          tags: ["HTML5", "CSS3", "Tailwind", "JavaScript"]
+          title: "Java Full Stack Web Applications",
+          description: "Building production web applications using Java Servlets, JSP, JDBC, and MySQL backends coupled with responsive, lightweight HTML5, CSS3, and modern JavaScript frontends.",
+          icon: "layers",
+          tags: ["Java", "Servlets", "JSP", "JDBC", "MySQL"]
         },
         {
           number: "02",
-          title: "Object-Oriented Java Architecture",
-          description: "Designing reliable software backbones using Core Java, OOPs design patterns, Exception Handling, Collections Framework, and rock-solid relational database connections.",
-          icon: "terminal",
-          tags: ["Java", "OOPs", "Collections", "JDBC"]
+          title: "AI Vision & API Integration",
+          description: "Integrating frontier AI vision models via OpenRouter to analyze images, recognize items, and generate real-time nutrition and contextual insights for user applications.",
+          icon: "sparkles",
+          tags: ["OpenRouter", "AI Vision", "REST APIs", "JSON"]
         },
         {
           number: "03",
-          title: "Backend Services & System Design",
-          description: "Architecting structured backend services, modular business logic, secure data access routines, and high-performance server components using Java and modern software patterns.",
-          icon: "layers",
-          tags: ["Java", "System Design", "Backend", "APIs"]
+          title: "Relational Database Design & MySQL",
+          description: "Architecting normalized relational schemas, executing high-efficiency SQL queries, and ensuring transactional data integrity with JDBC connections and Hibernate ORM.",
+          icon: "database",
+          tags: ["MySQL", "Schema Design", "Hibernate", "JDBC"]
         },
         {
           number: "04",
-          title: "Relational Database & AI Workflows",
-          description: "Structuring scalable relational data schemas in MySQL Workbench, authoring optimized SQL queries, and utilizing prompt engineering with ChatGPT for rapid iteration.",
-          icon: "database",
-          tags: ["MySQL", "SQL Queries", "Prompt AI"]
+          title: "Frontend UI/UX & Responsive Systems",
+          description: "Crafting fluid, high-converting digital interfaces with Tailwind CSS, clean semantic layouts, mobile-first breakpoints, and smooth micro-interactions.",
+          icon: "code",
+          tags: ["HTML5", "CSS3", "Tailwind", "JavaScript"]
         }
       ];
 
@@ -577,7 +670,7 @@
         return () => window.removeEventListener('scroll', handleScroll);
       }, []);
 
-      // Custom smooth cursor follower (Light Editorial)
+      // Smooth cursor follower
       useEffect(() => {
         const dot = document.getElementById('cursor-dot');
         const ring = document.getElementById('cursor-ring');
@@ -649,9 +742,13 @@
         setFormData(prev => ({ ...prev, [name]: value }));
       };
 
-      // Flat list of skills for 'All' tab
+      // Skills filtering
       const allSkills = Object.values(skillsData).flat();
       const currentSkills = skillTab === 'All' ? allSkills : skillsData[skillTab];
+
+      // Projects filtering
+      const fullStackProjects = projectsData.filter(p => p.category === 'Full-Stack');
+      const frontendProjects = projectsData.filter(p => p.category === 'Frontend');
 
       return (
         <div className="flex flex-col min-h-screen">
@@ -662,7 +759,7 @@
             style={{ width: `${scrollProgress}%` }}
           />
 
-          {/* Floating Pill Navigation Header (Dribbble Signature) */}
+          {/* Floating Pill Navigation Header */}
           <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 px-4 sm:px-8 ${
             scrolled ? 'py-3' : 'py-6'
           }`}>
@@ -693,7 +790,7 @@
                   <a
                     key={link.label}
                     href={link.href}
-                    className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-muted hover:text-onyx rounded-full hover:bg-onyx/[0.04] transition-all"
+                    className="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-muted hover:text-onyx rounded-full hover:bg-onyx/[0.04] transition-all"
                   >
                     {link.label}
                   </a>
@@ -756,7 +853,7 @@
           {/* MAIN CONTENT */}
           <main className="flex-grow">
 
-            {/* HERO SECTION — Dymas Alfin Editorial Layout */}
+            {/* HERO SECTION */}
             <section id="hero" className="relative min-h-screen pt-36 pb-20 flex items-center justify-center overflow-hidden">
               <div className="max-w-6xl mx-auto px-6 w-full">
                 
@@ -764,7 +861,7 @@
                 <ScrollReveal className="flex flex-wrap items-center justify-between gap-4 mb-8 text-xs font-mono tracking-widest text-muted">
                   <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-sand/20 border border-sand/40">
                     <span className="w-2 h-2 rounded-full bg-terracotta animate-ping"></span>
-                    <span className="text-espresso uppercase font-semibold">AVAILABLE FOR NEW PROJECTS</span>
+                    <span className="text-espresso uppercase font-semibold">AVAILABLE FOR FULL-TIME ROLES</span>
                   </div>
                   <div className="flex items-center gap-2 text-muted">
                     <Icon name="mappin" className="w-3.5 h-3.5 text-terracotta" />
@@ -777,14 +874,14 @@
                   
                   <div className="lg:col-span-8 text-left">
                     <ScrollReveal delay={100}>
-                      <span className="section-num mb-4">ARCHITECT & DEVELOPER</span>
+                      <span className="section-num mb-4">JAVA ARCHITECT & DEVELOPER</span>
                       
                       <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold text-onyx tracking-tight leading-[1.08] mb-6">
-                        Crafting scalable <br className="hidden sm:inline" />
+                        Building full-stack <br className="hidden sm:inline" />
                         <span className="text-terracotta">
-                          Java backends
+                          Java architectures
                         </span> <br className="hidden sm:inline" />
-                        & fluid interfaces.
+                        & intelligent web apps.
                       </h1>
 
                       {/* Interactive Typewriter Moniker */}
@@ -794,9 +891,9 @@
                         <span className="w-2 h-4 bg-terracotta animate-pulse"></span>
                       </div>
 
-                      {/* Bio summary - 100% PRESERVED */}
+                      {/* Bio summary */}
                       <p className="text-muted text-base sm:text-lg max-w-2xl font-normal leading-relaxed mb-10">
-                        Building elegant frontends backed by rock-solid Java architecture. Focused on crafting highly interactive, robust user experiences.
+                        Specializing in Java, JDBC, Servlets, JSP, MySQL, and modern frontend design. Delivering end-to-end full-stack applications with integrated AI vision capabilities.
                       </p>
 
                       {/* Hero Action CTAs */}
@@ -805,7 +902,7 @@
                           href="#projects"
                           className="px-7 py-3.5 rounded-full bg-onyx text-white hover:bg-espresso font-bold text-xs uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-xl shadow-onyx/10 flex items-center gap-2"
                         >
-                          <span>Explore Selected Works</span>
+                          <span>Explore Projects</span>
                           <Icon name="arrowDown" className="w-4 h-4" />
                         </a>
 
@@ -853,7 +950,7 @@
                     </ScrollReveal>
                   </div>
 
-                  {/* Hero Right: Modern Editorial Frame with Raju V's Photo */}
+                  {/* Hero Right: Portrait Frame with Raju V's Photo */}
                   <div className="lg:col-span-4 flex justify-center">
                     <ScrollReveal delay={250} className="relative w-full max-w-sm">
                       
@@ -882,7 +979,7 @@
                               </span>
                             </div>
                             <span className="text-xs text-muted block font-mono">
-                              Java & Full Stack Developer
+                              Java Full Stack Developer
                             </span>
                           </div>
                         </div>
@@ -898,23 +995,23 @@
                 <ScrollReveal delay={350} className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4">
                   
                   <div className="editorial-card p-6 rounded-2xl text-left">
-                    <span className="text-3xl font-display font-extrabold text-onyx block mb-1">04+</span>
-                    <span className="text-xs font-mono uppercase tracking-wider text-muted">Production Projects</span>
+                    <span className="text-3xl font-display font-extrabold text-onyx block mb-1">05+</span>
+                    <span className="text-xs font-mono uppercase tracking-wider text-muted">Deployed Projects</span>
                   </div>
 
                   <div className="editorial-card p-6 rounded-2xl text-left">
-                    <span className="text-3xl font-display font-extrabold text-onyx block mb-1">15+</span>
-                    <span className="text-xs font-mono uppercase tracking-wider text-muted">Core Technologies</span>
+                    <span className="text-3xl font-display font-extrabold text-onyx block mb-1">03</span>
+                    <span className="text-xs font-mono uppercase tracking-wider text-muted">Verified Certifications</span>
                   </div>
 
                   <div className="editorial-card p-6 rounded-2xl text-left">
-                    <span className="text-3xl font-display font-extrabold text-onyx block mb-1">2026</span>
-                    <span className="text-xs font-mono uppercase tracking-wider text-muted">B.E. Computer Science</span>
+                    <span className="text-3xl font-display font-extrabold text-onyx block mb-1">16+</span>
+                    <span className="text-xs font-mono uppercase tracking-wider text-muted">Technical Competencies</span>
                   </div>
 
                   <div className="editorial-card p-6 rounded-2xl text-left">
                     <span className="text-3xl font-display font-extrabold text-onyx block mb-1">100%</span>
-                    <span className="text-xs font-mono uppercase tracking-wider text-muted">Clean Architecture</span>
+                    <span className="text-xs font-mono uppercase tracking-wider text-muted">Production Mindset</span>
                   </div>
 
                 </ScrollReveal>
@@ -922,33 +1019,35 @@
               </div>
             </section>
 
-            {/* INFINITE RUNNING MARQUEE (Editorial Signature) */}
+            {/* INFINITE RUNNING MARQUEE */}
             <div className="py-6 border-y border-onyx/[0.08] bg-surface-subtle overflow-hidden relative">
               <div className="flex whitespace-nowrap animate-marquee">
                 {[...Array(2)].map((_, i) => (
                   <div key={i} className="flex items-center gap-8 text-xs font-mono uppercase tracking-[0.25em] text-muted px-4">
                     <span className="text-onyx font-bold">JAVA CORE & OOPS</span>
                     <span className="text-terracotta">✦</span>
-                    <span>FULL STACK WEB</span>
+                    <span>SERVLETS & JSP</span>
                     <span className="text-terracotta">✦</span>
-                    <span className="text-onyx font-bold">BACKEND ARCHITECTURE</span>
+                    <span className="text-onyx font-bold">JDBC ARCHITECTURE</span>
+                    <span className="text-terracotta">✦</span>
+                    <span>HIBERNATE ORM</span>
+                    <span className="text-terracotta">✦</span>
+                    <span className="text-onyx font-bold">REST APIS</span>
                     <span className="text-terracotta">✦</span>
                     <span>MYSQL WORKBENCH</span>
                     <span className="text-terracotta">✦</span>
-                    <span className="text-onyx font-bold">TAILWIND CSS & MODERN UI</span>
+                    <span className="text-onyx font-bold">OPENROUTER AI MODELS</span>
                     <span className="text-terracotta">✦</span>
-                    <span>JAVASCRIPT ES6+</span>
+                    <span>HTML5 & CSS3 & JAVASCRIPT</span>
                     <span className="text-terracotta">✦</span>
-                    <span className="text-onyx font-bold">AI PROMPT ENGINEERING</span>
-                    <span className="text-terracotta">✦</span>
-                    <span>RESPONSIVE DESIGN SYSTEM</span>
+                    <span className="text-onyx font-bold">ECLIPSE & GIT/GITHUB</span>
                     <span className="text-terracotta">✦</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* SECTION 01: ABOUT ME (Editorial Narrative & Bento Grid) */}
+            {/* SECTION 01: ABOUT ME */}
             <section id="about" className="py-28 relative">
               <div className="max-w-6xl mx-auto px-6">
                 
@@ -962,7 +1061,7 @@
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                   
-                  {/* Left Narrative Column - 100% PRESERVED */}
+                  {/* Left Narrative Column */}
                   <div className="lg:col-span-7 text-left space-y-6">
                     <ScrollReveal delay={100}>
                       <h3 className="text-xl sm:text-2xl font-display font-bold text-onyx">
@@ -970,22 +1069,19 @@
                       </h3>
                       
                       <p className="text-muted text-base leading-relaxed mt-4 font-normal">
-                        I am Raju V, a passionate Java Full Stack Developer with a strong interest in building modern web applications.
-                        I specialize in Java, HTML, CSS, MySQL, and Object-Oriented Programming concepts.
-                        I enjoy creating responsive, scalable, and user-friendly software solutions.
-                        I have hands-on experience developing full-stack and modern web applications through academic projects and internships.
+                        I am Raju V, a passionate Java Full Stack Developer with an engineering focus on scalable backend architecture, database systems, and modern, fluid web interfaces.
+                        My core strengths span Java, JDBC, JSP, Servlets, Hibernate, REST APIs, HTML, CSS, JavaScript, and MySQL, coupled with modern tooling like Eclipse, Git, GitHub, and OpenRouter AI integrations.
                       </p>
 
                       <p className="text-muted text-base leading-relaxed mt-4 font-light">
-                        My development philosophy relies on bridging clean user interfaces with well-designed logical architectures.
-                        Whether it is writing optimized SQL queries, structuring clean Java classes, or shaping responsive frontend layouts,
-                        I strive to write clean, efficient, and maintainable code. I enjoy collaborative environments, brainstorming
-                        to solve real-world problems, and continuously upskilling in modern framework architectures.
+                        I believe in building software where rock-solid persistence layers meet crisp, intuitive user journeys.
+                        Whether it is writing structured Java Servlets, managing relational databases with MySQL, integrating generative AI vision models, or designing responsive frontend layouts,
+                        I strive to write clean, efficient, and maintainable code.
                       </p>
 
                       {/* Hashtags Badges */}
                       <div className="flex flex-wrap gap-2 pt-6">
-                        {["#CleanCode", "#OOPsConcepts", "#WebDevelopment", "#JavaArchitectures", "#DesignSystems"].map((tag) => (
+                        {["#JavaFullStack", "#ServletsAndJSP", "#JDBC", "#Hibernate", "#MySQL", "#OpenRouterAI", "#CleanCode"].map((tag) => (
                           <span 
                             key={tag} 
                             className="px-3 py-1.5 rounded-lg bg-surface-subtle border border-onyx/[0.08] text-xs font-mono text-espresso font-medium"
@@ -1010,10 +1106,10 @@
 
                     <ScrollReveal delay={150} className="editorial-card p-6 rounded-2xl text-left">
                       <div className="w-10 h-10 rounded-xl bg-sand/20 flex items-center justify-center text-terracotta mb-4">
-                        <Icon name="code" className="w-5 h-5" />
+                        <Icon name="terminal" className="w-5 h-5" />
                       </div>
-                      <span className="text-xs font-mono text-muted uppercase tracking-wider block">Primary Domain</span>
-                      <p className="font-display font-bold text-onyx text-base mt-1">Web Dev & Java</p>
+                      <span className="text-xs font-mono text-muted uppercase tracking-wider block">Primary Focus</span>
+                      <p className="font-display font-bold text-onyx text-base mt-1">Java Full Stack</p>
                     </ScrollReveal>
 
                     <ScrollReveal delay={200} className="editorial-card p-6 rounded-2xl text-left">
@@ -1026,10 +1122,10 @@
 
                     <ScrollReveal delay={250} className="editorial-card p-6 rounded-2xl text-left">
                       <div className="w-10 h-10 rounded-xl bg-sand/20 flex items-center justify-center text-terracotta mb-4">
-                        <Icon name="check" className="w-5 h-5" />
+                        <Icon name="award" className="w-5 h-5" />
                       </div>
-                      <span className="text-xs font-mono text-muted uppercase tracking-wider block">Experience</span>
-                      <p className="font-display font-bold text-onyx text-base mt-1">Fresh Graduate (2026)</p>
+                      <span className="text-xs font-mono text-muted uppercase tracking-wider block">Credentials</span>
+                      <p className="font-display font-bold text-onyx text-base mt-1">Anthropic & IBM Certs</p>
                     </ScrollReveal>
 
                   </div>
@@ -1039,7 +1135,7 @@
               </div>
             </section>
 
-            {/* SECTION 02: SERVICES / CORE EXPERTISE (Numbered Editorial Layout) */}
+            {/* SECTION 02: SERVICES / CORE EXPERTISE */}
             <section id="services" className="py-28 border-t border-onyx/[0.08] relative bg-surface-subtle">
               <div className="max-w-6xl mx-auto px-6">
                 
@@ -1092,22 +1188,22 @@
               </div>
             </section>
 
-            {/* SECTION 03: SKILLS & TOOLKIT (Interactive Filterable Matrix) */}
+            {/* SECTION 03: SKILLS & TOOLKIT */}
             <section id="skills" className="py-28 border-t border-onyx/[0.08] relative">
               <div className="max-w-6xl mx-auto px-6">
                 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 text-left">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 text-left">
                   <ScrollReveal>
                     <span className="section-num mb-3">03 / TECH STACK & TOOLKIT</span>
                     <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-onyx tracking-tight">
-                      Skills & competency.
+                      Technical competencies.
                     </h2>
                   </ScrollReveal>
 
                   {/* Filter Pills */}
                   <ScrollReveal delay={150} className="mt-6 md:mt-0 flex flex-wrap gap-2">
-                    {["All", "Frontend", "Backend", "Databases", "Tools"].map((tab) => (
+                    {["All", "Backend & Java", "Frontend", "Databases", "Tools & AI"].map((tab) => (
                       <button
                         key={tab}
                         onClick={() => setSkillTab(tab)}
@@ -1123,12 +1219,35 @@
                   </ScrollReveal>
                 </div>
 
+                {/* Primary Skill Tag Highlight Banner */}
+                <ScrollReveal className="mb-10 editorial-card p-6 rounded-2xl text-left bg-gradient-to-r from-sand/15 via-canvas to-terracotta/10">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs font-mono text-terracotta uppercase font-bold tracking-wider">
+                      PRIMARY TECHNOLOGY STACK
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "Java", "JDBC", "JSP", "Servlets", "Hibernate", "REST APIs",
+                      "HTML", "CSS", "JavaScript", "MySQL", "OOP", "Collection Frameworks",
+                      "Eclipse", "Git", "GitHub", "OpenRouter"
+                    ].map((s) => (
+                      <span 
+                        key={s} 
+                        className="px-3.5 py-1.5 rounded-lg bg-white border border-onyx/[0.1] text-xs font-mono font-semibold text-onyx shadow-sm hover:border-terracotta transition-colors"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </ScrollReveal>
+
                 {/* Skills Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {currentSkills.map((skill, index) => (
                     <ScrollReveal
                       key={skill.name}
-                      delay={index * 40}
+                      delay={index * 30}
                       className="editorial-card p-5 rounded-2xl text-left group"
                     >
                       <div className="flex items-center justify-between mb-4">
@@ -1156,7 +1275,7 @@
               </div>
             </section>
 
-            {/* SECTION 04: SELECTED WORKS / PROJECTS (High-End Showcase Cards) */}
+            {/* SECTION 04: SELECTED WORKS / PROJECTS (Divided into Full-Stack and Frontend) */}
             <section id="projects" className="py-28 border-t border-onyx/[0.08] bg-surface-subtle relative">
               <div className="max-w-6xl mx-auto px-6">
                 
@@ -1171,153 +1290,461 @@
 
                   {/* Filter Pills */}
                   <ScrollReveal delay={150} className="mt-6 md:mt-0 flex gap-2">
-                    {["All", "Web", "Mobile"].map((filter) => (
+                    {[
+                      { key: 'All', label: 'All Works' },
+                      { key: 'Full-Stack', label: 'Full-Stack Projects' },
+                      { key: 'Frontend', label: 'Frontend Projects' }
+                    ].map((tab) => (
                       <button
-                        key={filter}
-                        onClick={() => setProjectFilter(filter)}
+                        key={tab.key}
+                        onClick={() => setProjectFilter(tab.key)}
                         className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-200 ${
-                          projectFilter === filter
+                          projectFilter === tab.key
                             ? 'bg-onyx text-white font-bold shadow-md'
                             : 'editorial-pill text-muted hover:text-onyx'
                         }`}
                       >
-                        {filter === 'All' ? 'All Works' : filter}
+                        {tab.label}
                       </button>
                     ))}
                   </ScrollReveal>
                 </div>
 
-                {/* Projects Showcase Cards */}
-                <div className="space-y-12">
-                  {projectsData
-                    .filter(proj => projectFilter === 'All' || proj.category === projectFilter)
-                    .map((project, index) => (
-                      <ScrollReveal
-                        key={project.title}
-                        delay={index * 100}
-                        className="editorial-card rounded-[32px] p-6 sm:p-8 text-left group overflow-hidden"
-                      >
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                          
-                          {/* Image Thumbnail Showcase */}
-                          <div className="lg:col-span-6 order-2 lg:order-1">
-                            <a 
-                              href={project.live || project.github} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="relative block aspect-[16/10] rounded-2xl overflow-hidden bg-sand/10 border border-onyx/[0.08] group/img"
-                            >
-                              <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
-                              />
+                {/* PROJECTS LIST */}
+                <div className="space-y-16">
+
+                  {/* SUBSECTION: FULL-STACK PROJECTS */}
+                  {(projectFilter === 'All' || projectFilter === 'Full-Stack') && (
+                    <div className="space-y-10">
+                      
+                      {/* Section Divider Badge */}
+                      <div className="flex items-center gap-4 text-left">
+                        <span className="px-3.5 py-1.5 rounded-full bg-terracotta text-white font-mono text-xs font-bold tracking-wider uppercase flex items-center gap-1.5 shadow-sm">
+                          <Icon name="layers" className="w-3.5 h-3.5" />
+                          <span>Full-Stack Projects</span>
+                        </span>
+                        <div className="flex-grow h-px bg-onyx/[0.1]"></div>
+                        <span className="text-xs font-mono text-muted hidden sm:inline">
+                          Java • Servlets • JSP • JDBC • MySQL • OpenRouter AI
+                        </span>
+                      </div>
+
+                      {/* Full-Stack Cards */}
+                      <div className="space-y-12">
+                        {fullStackProjects.map((project, index) => (
+                          <ScrollReveal
+                            key={project.id}
+                            delay={index * 100}
+                            className="editorial-card rounded-[32px] p-6 sm:p-8 text-left group overflow-hidden"
+                          >
+                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                               
-                              {/* Dark subtle overlay on hover */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-onyx/40 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity"></div>
-                              
-                              {/* Overlay View Button */}
-                              <div className="absolute bottom-4 right-4 px-3.5 py-1.5 rounded-full editorial-pill text-onyx text-xs font-mono flex items-center gap-1.5 opacity-90 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all">
-                                <span>Preview</span>
-                                <Icon name="arrowUpRight" className="w-3.5 h-3.5 text-terracotta" />
-                              </div>
-                            </a>
-                          </div>
-
-                          {/* Content Details */}
-                          <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col justify-between">
-                            <div>
-                              
-                              {/* Metadata line */}
-                              <div className="flex items-center gap-3 mb-4">
-                                <span className="font-mono text-xs text-terracotta font-bold uppercase tracking-wider">
-                                  {project.category} PROJECT
-                                </span>
-                                <span className="text-muted/40">•</span>
-                                <span className="text-xs font-mono text-muted">{project.year}</span>
-                                <span className="text-muted/40">•</span>
-                                <div className="flex items-center gap-1.5 text-xs font-mono text-espresso font-semibold bg-sand/25 px-2.5 py-0.5 rounded-full border border-sand/40">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse"></span>
-                                  <span>{project.status}</span>
-                                </div>
-                              </div>
-
-                              {/* Title */}
-                              <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-onyx mb-4 group-hover:text-terracotta transition-colors">
-                                <a href={project.live || project.github} target="_blank" rel="noopener noreferrer">
-                                  {project.title}
-                                </a>
-                              </h3>
-
-                              {/* Description - 100% PRESERVED */}
-                              <p className="text-muted text-sm sm:text-base leading-relaxed font-light mb-6">
-                                {project.description}
-                              </p>
-
-                              {/* Tech Stack Pills */}
-                              <div className="flex flex-wrap gap-2 mb-8">
-                                {project.tech.map((t) => (
-                                  <span
-                                    key={t}
-                                    className="px-3 py-1 rounded-lg bg-canvas border border-onyx/[0.08] text-xs font-mono text-onyx"
-                                  >
-                                    {t}
-                                  </span>
-                                ))}
-                              </div>
-
-                            </div>
-
-                            {/* Action Buttons */}
-                            <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-onyx/[0.08]">
-                              {project.live && (
-                                <a
-                                  href={project.live}
-                                  target="_blank"
+                              {/* Image Showcase */}
+                              <div className="lg:col-span-6 order-2 lg:order-1">
+                                <a 
+                                  href={project.live || project.github} 
+                                  target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="px-5 py-2.5 rounded-full bg-onyx text-white font-bold text-xs uppercase tracking-wider hover:bg-espresso transition-all hover:scale-105 flex items-center gap-2 shadow-md shadow-onyx/10"
+                                  className="relative block aspect-[16/10] rounded-2xl overflow-hidden bg-sand/10 border border-onyx/[0.08] group/img shadow-md"
                                 >
-                                  <span>Live Demo</span>
-                                  <Icon name="external" className="w-3.5 h-3.5" />
+                                  <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
+                                  />
+                                  <div className="absolute inset-0 bg-gradient-to-t from-onyx/40 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity"></div>
+                                  <div className="absolute bottom-4 right-4 px-3.5 py-1.5 rounded-full editorial-pill text-onyx text-xs font-mono flex items-center gap-1.5 opacity-90 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all">
+                                    <span>Live Preview</span>
+                                    <Icon name="arrowUpRight" className="w-3.5 h-3.5 text-terracotta" />
+                                  </div>
                                 </a>
-                              )}
+                              </div>
 
-                              <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-5 py-2.5 rounded-full editorial-pill hover:border-terracotta text-onyx hover:text-terracotta font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2"
-                              >
-                                <span>Source Code</span>
-                                <Icon name="github" className="w-3.5 h-3.5" />
-                              </a>
+                              {/* Details */}
+                              <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col justify-between">
+                                <div>
+                                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                                    <span className="font-mono text-xs text-terracotta font-bold uppercase tracking-wider">
+                                      {project.badge}
+                                    </span>
+                                    <span className="text-muted/40">•</span>
+                                    <span className="text-xs font-mono text-muted">{project.period}</span>
+                                    <span className="text-muted/40">•</span>
+                                    <div className="flex items-center gap-1.5 text-xs font-mono text-espresso font-semibold bg-sand/25 px-2.5 py-0.5 rounded-full border border-sand/40">
+                                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse"></span>
+                                      <span>Production Deployed</span>
+                                    </div>
+                                  </div>
+
+                                  <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-onyx mb-4 group-hover:text-terracotta transition-colors">
+                                    <a href={project.live || project.github} target="_blank" rel="noopener noreferrer">
+                                      {project.title}
+                                    </a>
+                                  </h3>
+
+                                  {/* Bullet Points */}
+                                  <ul className="space-y-2 mb-6">
+                                    {project.bullets.map((bullet, bIdx) => (
+                                      <li key={bIdx} className="text-muted text-sm sm:text-[13.5px] leading-relaxed font-light flex items-start gap-2">
+                                        <span className="text-terracotta mt-1">•</span>
+                                        <span>{bullet}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+
+                                  {/* Tech Badges */}
+                                  <div className="flex flex-wrap gap-1.5 mb-6">
+                                    {project.tech.map((t) => (
+                                      <span
+                                        key={t}
+                                        className="px-2.5 py-1 rounded-md bg-canvas border border-onyx/[0.08] text-[11px] font-mono text-onyx font-medium"
+                                      >
+                                        {t}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-onyx/[0.08]">
+                                  {project.live && (
+                                    <a
+                                      href={project.live}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="px-5 py-2.5 rounded-full bg-onyx text-white font-bold text-xs uppercase tracking-wider hover:bg-espresso transition-all hover:scale-105 flex items-center gap-2 shadow-md shadow-onyx/10"
+                                    >
+                                      <span>Live App</span>
+                                      <Icon name="external" className="w-3.5 h-3.5" />
+                                    </a>
+                                  )}
+
+                                  {project.github && (
+                                    <a
+                                      href={project.github}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="px-5 py-2.5 rounded-full editorial-pill hover:border-terracotta text-onyx hover:text-terracotta font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2"
+                                    >
+                                      <span>Source Code</span>
+                                      <Icon name="github" className="w-3.5 h-3.5" />
+                                    </a>
+                                  )}
+                                </div>
+
+                              </div>
+
                             </div>
+                          </ScrollReveal>
+                        ))}
+                      </div>
 
-                          </div>
+                    </div>
+                  )}
 
-                        </div>
-                      </ScrollReveal>
-                    ))}
+                  {/* SUBSECTION: FRONTEND PROJECTS */}
+                  {(projectFilter === 'All' || projectFilter === 'Frontend') && (
+                    <div className="space-y-10 pt-4">
+                      
+                      {/* Section Divider Badge */}
+                      <div className="flex items-center gap-4 text-left">
+                        <span className="px-3.5 py-1.5 rounded-full bg-espresso text-white font-mono text-xs font-bold tracking-wider uppercase flex items-center gap-1.5 shadow-sm">
+                          <Icon name="code" className="w-3.5 h-3.5" />
+                          <span>Frontend Projects</span>
+                        </span>
+                        <div className="flex-grow h-px bg-onyx/[0.1]"></div>
+                        <span className="text-xs font-mono text-muted hidden sm:inline">
+                          HTML5 • CSS3 • JavaScript • Responsive UI/UX
+                        </span>
+                      </div>
+
+                      {/* Frontend Cards */}
+                      <div className="space-y-12">
+                        {frontendProjects.map((project, index) => (
+                          <ScrollReveal
+                            key={project.id}
+                            delay={index * 100}
+                            className="editorial-card rounded-[32px] p-6 sm:p-8 text-left group overflow-hidden"
+                          >
+                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                              
+                              {/* Image Showcase */}
+                              <div className="lg:col-span-6 order-2 lg:order-1">
+                                <a 
+                                  href={project.live || project.github} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="relative block aspect-[16/10] rounded-2xl overflow-hidden bg-sand/10 border border-onyx/[0.08] group/img shadow-md"
+                                >
+                                  <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
+                                  />
+                                  <div className="absolute inset-0 bg-gradient-to-t from-onyx/40 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity"></div>
+                                  <div className="absolute bottom-4 right-4 px-3.5 py-1.5 rounded-full editorial-pill text-onyx text-xs font-mono flex items-center gap-1.5 opacity-90 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all">
+                                    <span>Preview</span>
+                                    <Icon name="arrowUpRight" className="w-3.5 h-3.5 text-terracotta" />
+                                  </div>
+                                </a>
+                              </div>
+
+                              {/* Details */}
+                              <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col justify-between">
+                                <div>
+                                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                                    <span className="font-mono text-xs text-terracotta font-bold uppercase tracking-wider">
+                                      {project.badge}
+                                    </span>
+                                    <span className="text-muted/40">•</span>
+                                    <span className="text-xs font-mono text-muted">{project.period}</span>
+                                    <span className="text-muted/40">•</span>
+                                    <div className="flex items-center gap-1.5 text-xs font-mono text-espresso font-semibold bg-sand/25 px-2.5 py-0.5 rounded-full border border-sand/40">
+                                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse"></span>
+                                      <span>Live</span>
+                                    </div>
+                                  </div>
+
+                                  <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-onyx mb-4 group-hover:text-terracotta transition-colors">
+                                    <a href={project.live || project.github} target="_blank" rel="noopener noreferrer">
+                                      {project.title}
+                                    </a>
+                                  </h3>
+
+                                  {/* Bullets */}
+                                  <ul className="space-y-2 mb-6">
+                                    {project.bullets.map((bullet, bIdx) => (
+                                      <li key={bIdx} className="text-muted text-sm sm:text-[13.5px] leading-relaxed font-light flex items-start gap-2">
+                                        <span className="text-terracotta mt-1">•</span>
+                                        <span>{bullet}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+
+                                  {/* Tech Badges */}
+                                  <div className="flex flex-wrap gap-1.5 mb-6">
+                                    {project.tech.map((t) => (
+                                      <span
+                                        key={t}
+                                        className="px-2.5 py-1 rounded-md bg-canvas border border-onyx/[0.08] text-[11px] font-mono text-onyx font-medium"
+                                      >
+                                        {t}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-onyx/[0.08]">
+                                  {project.live && (
+                                    <a
+                                      href={project.live}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="px-5 py-2.5 rounded-full bg-onyx text-white font-bold text-xs uppercase tracking-wider hover:bg-espresso transition-all hover:scale-105 flex items-center gap-2 shadow-md shadow-onyx/10"
+                                    >
+                                      <span>Live Demo</span>
+                                      <Icon name="external" className="w-3.5 h-3.5" />
+                                    </a>
+                                  )}
+
+                                  {project.github && (
+                                    <a
+                                      href={project.github}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="px-5 py-2.5 rounded-full editorial-pill hover:border-terracotta text-onyx hover:text-terracotta font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2"
+                                    >
+                                      <span>Source Code</span>
+                                      <Icon name="github" className="w-3.5 h-3.5" />
+                                    </a>
+                                  )}
+                                </div>
+
+                              </div>
+
+                            </div>
+                          </ScrollReveal>
+                        ))}
+                      </div>
+
+                    </div>
+                  )}
+
                 </div>
 
               </div>
             </section>
 
-            {/* SECTION 05: EDUCATION & CREDENTIALS (Curated Experience Timeline) */}
-            <section id="education" className="py-28 border-t border-onyx/[0.08] relative">
+            {/* SECTION 05: CERTIFICATES & ACCREDITATIONS */}
+            <section id="certificates" className="py-28 border-t border-onyx/[0.08] relative">
+              <div className="max-w-6xl mx-auto px-6">
+                
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 text-left">
+                  <ScrollReveal>
+                    <span className="section-num mb-3">05 / VERIFIED CREDENTIALS</span>
+                    <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-onyx tracking-tight">
+                      Certifications & badges.
+                    </h2>
+                  </ScrollReveal>
+
+                  <ScrollReveal delay={150} className="mt-4 md:mt-0">
+                    <span className="text-xs font-mono text-muted uppercase tracking-wider">
+                      3 Industry-Recognized Accreditations
+                    </span>
+                  </ScrollReveal>
+                </div>
+
+                {/* Certificates Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {certificatesData.map((cert, index) => (
+                    <ScrollReveal
+                      key={cert.id}
+                      delay={index * 90}
+                      className="editorial-card rounded-3xl p-6 text-left flex flex-col justify-between group overflow-hidden"
+                    >
+                      <div>
+                        {/* Certificate Image Thumbnail (Clickable for Modal) */}
+                        <div 
+                          onClick={() => setSelectedCert(cert)}
+                          className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-sand/10 border border-onyx/[0.08] mb-5 cursor-pointer group/cert"
+                          title="Click to view full certificate"
+                        >
+                          <img
+                            src={cert.image}
+                            alt={cert.title}
+                            className="w-full h-full object-cover group-hover/cert:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-onyx/20 opacity-0 group-hover/cert:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="px-3 py-1.5 rounded-full editorial-pill text-xs font-mono font-bold text-onyx shadow-md flex items-center gap-1.5">
+                              <span>Enlarge</span>
+                              <Icon name="arrowUpRight" className="w-3.5 h-3.5 text-terracotta" />
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Issuer & Date Badges */}
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="px-2.5 py-1 rounded-md bg-sand/25 border border-sand/50 text-[11px] font-mono font-bold text-espresso uppercase">
+                            {cert.issuer}
+                          </span>
+                          <span className="text-xs font-mono text-muted">{cert.issuedDate}</span>
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="font-display text-xl font-bold text-onyx mb-2 group-hover:text-terracotta transition-colors">
+                          {cert.title}
+                        </h3>
+
+                        {/* Summary */}
+                        <p className="text-muted text-xs leading-relaxed font-light mb-4">
+                          {cert.summary}
+                        </p>
+
+                        {/* Topics */}
+                        <div className="flex flex-wrap gap-1.5 mb-6">
+                          {cert.topics.map((topic) => (
+                            <span 
+                              key={topic} 
+                              className="text-[10px] font-mono px-2 py-0.5 rounded bg-surface-subtle border border-onyx/[0.06] text-onyx"
+                            >
+                              {topic}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Verify Button */}
+                      <div className="pt-4 border-t border-onyx/[0.06]">
+                        <a
+                          href={cert.verifyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full py-2.5 rounded-xl editorial-pill hover:border-terracotta text-onyx hover:text-terracotta font-mono font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 group-hover:bg-onyx/[0.02]"
+                        >
+                          <Icon name="shieldCheck" className="w-4 h-4 text-terracotta" />
+                          <span>Verify Credential</span>
+                          <Icon name="arrowUpRight" className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+
+                    </ScrollReveal>
+                  ))}
+                </div>
+
+              </div>
+            </section>
+
+            {/* CERTIFICATE FULLSCREEN LIGHTBOX MODAL */}
+            {selectedCert && (
+              <div 
+                className="fixed inset-0 z-50 bg-onyx/80 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+                onClick={() => setSelectedCert(null)}
+              >
+                <div 
+                  className="editorial-card max-w-3xl w-full rounded-3xl p-6 relative shadow-2xl bg-white"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="flex items-center justify-between pb-4 border-b border-onyx/[0.08] mb-4">
+                    <div>
+                      <span className="text-xs font-mono text-terracotta uppercase font-bold tracking-wider">
+                        {selectedCert.issuer} Verified Certification
+                      </span>
+                      <h4 className="font-display font-bold text-lg text-onyx mt-0.5">
+                        {selectedCert.title}
+                      </h4>
+                    </div>
+                    <button
+                      onClick={() => setSelectedCert(null)}
+                      className="p-2 rounded-full editorial-pill text-onyx hover:text-terracotta transition-colors"
+                      aria-label="Close modal"
+                    >
+                      <Icon name="x" className="w-5 h-5" />
+                    </button>
+                  </div>
+
+                  <div className="rounded-2xl overflow-hidden border border-onyx/[0.08] bg-sand/10 max-h-[70vh] flex items-center justify-center mb-5">
+                    <img
+                      src={selectedCert.image}
+                      alt={selectedCert.title}
+                      className="max-h-[65vh] w-auto object-contain"
+                    />
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                    <span className="text-xs font-mono text-muted">
+                      Issued: {selectedCert.issuedDate} • Verified Credential ID: {selectedCert.credentialId}
+                    </span>
+                    <a
+                      href={selectedCert.verifyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 rounded-full bg-onyx text-white font-bold text-xs uppercase tracking-wider hover:bg-espresso transition-all flex items-center gap-2"
+                    >
+                      <span>Verify on Official Issuer Page</span>
+                      <Icon name="arrowUpRight" className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* SECTION 06: EDUCATION & TIMELINE */}
+            <section id="education" className="py-28 border-t border-onyx/[0.08] relative bg-surface-subtle">
               <div className="max-w-6xl mx-auto px-6">
                 
                 {/* Header */}
                 <ScrollReveal className="text-left mb-16">
-                  <span className="section-num mb-3">05 / QUALIFICATION & JOURNEY</span>
+                  <span className="section-num mb-3">06 / ACADEMIC JOURNEY</span>
                   <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-onyx tracking-tight">
-                    Education & credentials.
+                    Education & background.
                   </h2>
                 </ScrollReveal>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                   
-                  {/* Left Column: Education Timeline - 100% PRESERVED */}
+                  {/* Left Column: Education Timeline */}
                   <div className="lg:col-span-7 space-y-8 text-left">
                     <ScrollReveal className="relative pl-8 border-l-2 border-sand/50 space-y-10">
                       
@@ -1360,7 +1787,7 @@
                           </h4>
                           <span className="text-xs font-mono text-muted block mb-2">Karnataka, India</span>
                           <p className="text-muted text-sm leading-relaxed font-light">
-                            Focused on Physics, Chemistry, Mathematics, and Computer Science.
+                            Focused on Physics, Chemistry, Mathematics, and Computer Science foundations.
                           </p>
                         </div>
                       </div>
@@ -1382,7 +1809,7 @@
                           </h4>
                           <span className="text-xs font-mono text-muted block mb-2">Chintamani, India</span>
                           <p className="text-muted text-sm leading-relaxed font-light">
-                            Secondary School Leaving Certificate (SSLC).
+                            Secondary School Leaving Certificate (SSLC) with honors.
                           </p>
                         </div>
                       </div>
@@ -1390,14 +1817,14 @@
                     </ScrollReveal>
                   </div>
 
-                  {/* Right Column: Credentials & Learnings - 100% PRESERVED */}
+                  {/* Right Column: Key Learnings */}
                   <div className="lg:col-span-5 text-left space-y-6">
                     <ScrollReveal delay={150}>
                       <h3 className="font-display text-2xl font-bold text-onyx mb-6 flex items-center gap-3">
                         <div className="w-8 h-8 rounded-lg bg-sand/20 flex items-center justify-center text-terracotta">
                           <Icon name="award" className="w-5 h-5" />
                         </div>
-                        <span>Credentials & Learnings</span>
+                        <span>Core Specializations</span>
                       </h3>
 
                       <div className="space-y-4">
@@ -1405,30 +1832,14 @@
                         <div className="editorial-card p-6 rounded-2xl group">
                           <div className="flex items-start gap-4">
                             <div className="w-10 h-10 rounded-xl bg-sand/20 flex items-center justify-center text-terracotta flex-shrink-0 group-hover:scale-110 transition-transform">
-                              <Icon name="code" className="w-5 h-5" />
+                              <Icon name="terminal" className="w-5 h-5" />
                             </div>
                             <div>
                               <h4 className="font-display font-bold text-onyx text-base">
-                                Java Full Stack Developer Program
+                                Java Enterprise & Backend Systems
                               </h4>
                               <p className="text-xs text-muted mt-1 font-light leading-relaxed">
-                                Focus: Object-Oriented Java, MySQL Relational Database, Web Technologies
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="editorial-card p-6 rounded-2xl group">
-                          <div className="flex items-start gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-sand/20 flex items-center justify-center text-terracotta flex-shrink-0 group-hover:scale-110 transition-transform">
-                              <Icon name="globe" className="w-5 h-5" />
-                            </div>
-                            <div>
-                              <h4 className="font-display font-bold text-onyx text-base">
-                                Modern Responsive Web Development
-                              </h4>
-                              <p className="text-xs text-muted mt-1 font-light leading-relaxed">
-                                Focus: HTML5 layout hierarchy, CSS Flexbox/Grid systems, responsive micro-animations
+                                Architecture patterns, Servlets, JSP MVC structures, JDBC relational connections, and Hibernate object mapping.
                               </p>
                             </div>
                           </div>
@@ -1441,10 +1852,26 @@
                             </div>
                             <div>
                               <h4 className="font-display font-bold text-onyx text-base">
-                                Prompt Engineering & AI Workflows
+                                AI Vision & Model Integration
                               </h4>
                               <p className="text-xs text-muted mt-1 font-light leading-relaxed">
-                                Focus: Generating code structures, optimizing algorithmic syntax, debugging assistance with ChatGPT
+                                Integrating multi-modal LLMs through OpenRouter API to empower real-world applications with visual comprehension.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="editorial-card p-6 rounded-2xl group">
+                          <div className="flex items-start gap-4">
+                            <div className="w-10 h-10 rounded-xl bg-sand/20 flex items-center justify-center text-terracotta flex-shrink-0 group-hover:scale-110 transition-transform">
+                              <Icon name="database" className="w-5 h-5" />
+                            </div>
+                            <div>
+                              <h4 className="font-display font-bold text-onyx text-base">
+                                MySQL Database Modeling
+                              </h4>
+                              <p className="text-xs text-muted mt-1 font-light leading-relaxed">
+                                Schema normalization, SQL querying, transactional persistence, and indexing for optimal performance.
                               </p>
                             </div>
                           </div>
@@ -1459,18 +1886,18 @@
               </div>
             </section>
 
-            {/* COLLABORATION BANNER (CTA Block) */}
-            <section className="py-24 border-t border-onyx/[0.08] relative overflow-hidden bg-surface-subtle">
+            {/* COLLABORATION BANNER */}
+            <section className="py-24 border-t border-onyx/[0.08] relative overflow-hidden bg-canvas">
               <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
                 <ScrollReveal>
-                  <span className="section-num mb-4 justify-center">COLLABORATION</span>
+                  <span className="section-num mb-4 justify-center">GET INVOLVED</span>
                   
                   <h2 className="font-display text-4xl sm:text-6xl font-extrabold text-onyx tracking-tight mb-6 mt-2">
-                    Let's work together!
+                    Let's build something exceptional.
                   </h2>
                   
                   <p className="text-muted text-base sm:text-lg max-w-xl mx-auto font-light leading-relaxed mb-10">
-                    I am actively seeking full-time developer positions and collaborative software projects. Let's design something great.
+                    I am actively seeking full-time developer positions and technical engineering collaborations. Let's discuss your next project.
                   </p>
 
                   <div className="flex flex-wrap justify-center gap-4">
@@ -1486,36 +1913,36 @@
                       rel="noopener noreferrer"
                       className="px-8 py-4 rounded-full editorial-card hover:border-terracotta text-onyx font-bold text-xs uppercase tracking-wider hover:scale-105 transition-all"
                     >
-                      View Credentials
+                      Download Resume
                     </a>
                   </div>
                 </ScrollReveal>
               </div>
             </section>
 
-            {/* SECTION 06: CONTACT & INQUIRIES */}
+            {/* SECTION 07: CONTACT & INQUIRIES */}
             <section id="contact" className="py-28 border-t border-onyx/[0.08] relative">
               <div className="max-w-6xl mx-auto px-6">
                 
                 {/* Header */}
                 <ScrollReveal className="text-left mb-16">
-                  <span className="section-num mb-3">06 / GET IN TOUCH</span>
+                  <span className="section-num mb-3">07 / GET IN TOUCH</span>
                   <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-onyx tracking-tight">
-                    Have a project in mind? Let's talk.
+                    Have an opportunity? Let's connect.
                   </h2>
                 </ScrollReveal>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                   
-                  {/* Left Column: Direct Info - 100% PRESERVED */}
+                  {/* Left Column: Direct Info */}
                   <div className="lg:col-span-5 text-left space-y-6">
                     <ScrollReveal>
                       <h3 className="font-display text-2xl font-bold text-onyx mb-3">
-                        Let's Discuss Your Project
+                        Contact Information
                       </h3>
                       
                       <p className="text-muted text-sm sm:text-base font-light leading-relaxed mb-8">
-                        Feel free to drop a line for job opportunities, project ideas, or just to connect and share some tech thoughts. I typically respond within 24 hours.
+                        Feel free to reach out directly regarding job opportunities, freelance collaborations, or technical discussions. I respond promptly within 24 hours.
                       </p>
 
                       <div className="space-y-4">
@@ -1526,7 +1953,7 @@
                               <Icon name="mail" className="w-5 h-5" />
                             </div>
                             <div>
-                              <span className="text-[10px] font-mono uppercase tracking-widest text-muted block">Email Address</span>
+                              <span className="text-[10px] font-mono uppercase tracking-widest text-muted block">Direct Email</span>
                               <a href={`mailto:${emailAddress}`} className="text-sm font-semibold text-onyx hover:text-terracotta transition-colors">
                                 {emailAddress}
                               </a>
@@ -1543,21 +1970,23 @@
 
                         <div className="editorial-card p-5 rounded-2xl flex items-center gap-4">
                           <div className="w-10 h-10 rounded-xl bg-sand/20 flex items-center justify-center text-terracotta">
-                            <Icon name="mappin" className="w-5 h-5" />
+                            <Icon name="github" className="w-5 h-5" />
                           </div>
                           <div>
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-muted block">Current Location</span>
-                            <span className="text-sm font-semibold text-onyx">Bengaluru, India</span>
+                            <span className="text-[10px] font-mono uppercase tracking-widest text-muted block">GitHub Profile</span>
+                            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-onyx hover:text-terracotta transition-colors">
+                              github.com/Rajuv-hub
+                            </a>
                           </div>
                         </div>
 
                         <div className="editorial-card p-5 rounded-2xl flex items-center gap-4">
                           <div className="w-10 h-10 rounded-xl bg-sand/20 flex items-center justify-center text-terracotta">
-                            <Icon name="globe" className="w-5 h-5" />
+                            <Icon name="mappin" className="w-5 h-5" />
                           </div>
                           <div>
-                            <span className="text-[10px] font-mono uppercase tracking-widest text-muted block">Primary Role</span>
-                            <span className="text-sm font-semibold text-onyx">Java Full Stack Developer</span>
+                            <span className="text-[10px] font-mono uppercase tracking-widest text-muted block">Location</span>
+                            <span className="text-sm font-semibold text-onyx">Bengaluru, Karnataka, India</span>
                           </div>
                         </div>
 
@@ -1580,7 +2009,7 @@
                               onChange={handleInputChange}
                               required
                               className="w-full px-4 py-3.5 rounded-xl bg-surface-subtle border border-onyx/[0.12] focus:border-terracotta text-onyx text-sm outline-none transition-colors"
-                              placeholder="Your name"
+                              placeholder="Your full name"
                             />
                           </div>
 
@@ -1606,7 +2035,7 @@
                             value={formData.subject}
                             onChange={handleInputChange}
                             className="w-full px-4 py-3.5 rounded-xl bg-surface-subtle border border-onyx/[0.12] focus:border-terracotta text-onyx text-sm outline-none transition-colors"
-                            placeholder="Message subject (optional)"
+                            placeholder="Role or project opportunity"
                           />
                         </div>
 
@@ -1619,7 +2048,7 @@
                             required
                             rows="4"
                             className="w-full px-4 py-3.5 rounded-xl bg-surface-subtle border border-onyx/[0.12] focus:border-terracotta text-onyx text-sm outline-none transition-colors resize-none"
-                            placeholder="Tell me about your project or opportunity..."
+                            placeholder="Details about your position, project, or requirements..."
                           ></textarea>
                         </div>
 
@@ -1658,7 +2087,7 @@
               
               <div>
                 <span className="font-display text-lg font-bold text-onyx tracking-tight">Raju V</span>
-                <p className="text-xs font-mono text-muted mt-1">Full Stack Developer | Portfolio 2026</p>
+                <p className="text-xs font-mono text-muted mt-1">Java Full Stack Developer | Portfolio 2026</p>
               </div>
 
               <span className="text-xs font-mono text-muted text-center">
